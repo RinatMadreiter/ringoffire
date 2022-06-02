@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
   games: Array<any>;
   gameId: string;
   gameOver: boolean = false;
-  
+
   constructor(private route: ActivatedRoute, public dialog: MatDialog, private firestore: Firestore) {
     //firestore
     const coll = collection(this.firestore, 'games'); // whole collection of firestore database of games defined
@@ -74,6 +74,7 @@ export class GameComponent implements OnInit {
 
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+      
       this.saveGame();
 
       setTimeout(() => {
