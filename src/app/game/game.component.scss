@@ -74,6 +74,13 @@
     bottom: 32px;
     right: 100px;
     left: 100px;
+
+    @media (max-width: 720px) {
+        height: 150px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
 }
 
 app-player,
@@ -86,17 +93,41 @@ app-player-mobile {
 }
 
 .game-over {
+    position: relative;
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
+    object-fit: contain;
     max-width: 100%;
     display: flex;
 }
 
-// .preloadImage {
-//     opacity: 0;
-//     z-index: -999;
-//     height: 0;
-//     width: 0;
-//     display: none;
-// }
+.preloadImage {
+    opacity: 0;
+    z-index: -999;
+    height: 0;
+    width: 0;
+    display: none;
+}
+
+.replay {
+    position: absolute;
+    width: 60px;
+    top: 50%;
+    left: 42%;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.scroll-container {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow-x: auto;
+
+    app-player-mobile {
+        margin-left: 8px;
+    }
+
+}

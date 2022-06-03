@@ -22,6 +22,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
     PlayerComponent,
     DialogAddPlayerComponent,
     GameInfoComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    PlayerMobileComponent
   ],
   imports: [
     MatButtonModule,

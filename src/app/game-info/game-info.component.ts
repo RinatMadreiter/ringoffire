@@ -8,19 +8,19 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 export class GameInfoComponent implements OnInit, OnChanges {
 
   cardAction = [
-    { title: 'Waterfall', description: 'Everyone has to start drinking at the same time. As soon as player 1 stops drinking, player 2 may stop drinking. Player 3 may stop as soon as player 2 stops drinking, and so on.' },
-    { title: 'You', description: 'You decide who drinks' },
-    { title: 'Me', description: 'Congrats! Drink a shot!' },
-    { title: 'Category', description: 'Come up with a category (e.g. Colors). Each player must enumerate one item from the category.' },
-    { title: 'Bust a jive', description: 'Player 1 makes a dance move. Player 2 repeats the dance move and adds a second one. ' },
-    { title: 'Chicks', description: 'All girls drink.' },
-    { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
-    { title: 'Mate', description: 'Pick a mate. Your mate must always drink when you drink and the other way around.' },
-    { title: 'Thumbmaster', description: '' },
-    { title: 'Men', description: 'All men drink.' },
-    { title: 'Quizmaster', description: '' },
-    { title: 'Never have i ever...', description: 'Say something you nnever did. Everyone who did it has to drink.' },
-    { title: 'Rule', description: 'Make a rule. Everyone needs to drink when he breaks the rule.' },
+    { title: 'Ace is for all.', description: 'Everyone must say a verb.' },
+    { title: '2 is for you.', description: 'The student selects another student in the class to say a noun.' },
+    { title: '3 is for me.', description: 'The student who selects the card must say a verb.' },
+    { title: '4 is for the floor.', description: 'Everyone must quickly touch the floor. The last student to touch the floor must say a noun.' },
+    { title: '5 is for guys.', description: 'All of the male students must say a noun.' },
+    { title: '6 is for ladies', description: 'All of the female students must say a noun.' },
+    { title: '7 is for heaven.', description: 'Everyone must quickly put their hands in the air. The last student to put their hands up must say a verb.' },
+    { title: '8 is for mate or ‘friend’', description: 'If a student selects an 8, then they must pick another student to spell a noun.' },
+    { title: '9 is for rhyme.', description: 'If a student selects a 9, then they must say a word out loud. Then, each student in the group must say a rhyming word in succession going clockwise.' },
+    { title: '10 is for ‘Never Have I Ever.’', description: 'Everyone holds up 3 fingers. The student that selected the card says, “Never have I ever…” and completes the sentence. If other students have done that particular thing, then they must lower a finger. This continues until someone has no fingers left. The student without any fingers remaining must do something funny or challenging.' },
+    { title: 'Jack is for rule.', description: 'The student who selects the card makes a rule that must be followed for the whole game. If someone breaks the rule, then they have to spell a noun.' },
+    { title: 'Queen is for question. ', description: 'The student who selects the card asks another student a question.' },
+    { title: 'King is for King’s Cup.', description: 'The student who selects the first King must assign a funny or challenging task. Then, the students who select the next 3 Kings must perform the task.' },
   ];
 
   title = '';
