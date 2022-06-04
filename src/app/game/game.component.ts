@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import { collectionData, Firestore } from '@angular/fire/firestore';
 import { Firestore, collectionData, addDoc, collection, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Game } from 'src/models/game';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { DialogShareComponent } from '../dialog-share/dialog-share.component';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class GameComponent implements OnInit {
   gameOver: boolean = false;
   stackOver: boolean = false;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog, private firestore: Firestore) {
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, public dialogShare: MatDialog, private firestore: Firestore) {
     //firestore
     const coll = collection(this.firestore, 'games'); // whole collection of firestore database of games defined
     this.games$ = collectionData(coll); //get data from collection (content of games array)
@@ -100,6 +100,10 @@ export class GameComponent implements OnInit {
         this.saveGame();
       }
     });
+  }
+
+  openShareDialog(): void{
+    const dialogRef = this.dialogShare.open(DialogShareComponent);
   }
 
   saveGame() {
