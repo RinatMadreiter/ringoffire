@@ -27,3 +27,11 @@ body {
         visibility: hidden;
     }
 }
+
+@media (max-width: 560px) {
+
+    .hide-description {
+        display: none;
+        visibility: hidden;
+    }
+}

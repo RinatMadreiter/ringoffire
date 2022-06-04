@@ -22,7 +22,6 @@ export class StartScreenComponent implements OnInit {
     let game = new Game();
     const coll = collection(this.firestore, 'games'); // to use firestore outside the constructor we need to use "this." and insert a "private" or "public" before "firestore"
     addDoc(coll, game.toJson()).then((gameInfo: any) => {
-      console.log('the game info is ', gameInfo);
       this.router.navigateByUrl("/game/" + gameInfo.id);
     });
   }

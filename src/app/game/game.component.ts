@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
   games: Array<any>;
   gameId: string;
   gameOver: boolean = false;
+  stackOver: boolean = false;
 
   constructor(private route: ActivatedRoute, public dialog: MatDialog, private firestore: Firestore) {
     //firestore
@@ -26,7 +27,7 @@ export class GameComponent implements OnInit {
     this.games$ = collectionData(coll); //get data from collection (content of games array)
 
     this.games$.subscribe((game) => { // we need to subscribe to update the information of games database
-      console.log('the game update on firestore is ', game);
+      // console.log('the game update on firestore is ', game);
       this.games = game;
     });
   }
@@ -44,7 +45,7 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params: any) => {
-      console.log(params);
+      // console.log(params);
       this.gameId = params.id;
 
       // const coll = collection(this.firestore, 'games'); // to use firestore outside the constructor we need to use "this." and insert a "private" or "public" before "firestore"
@@ -56,7 +57,7 @@ export class GameComponent implements OnInit {
         this.game.stack = game.stack;
         this.game.currentCard = game.currentCard;
         this.game.pickCardAnimation = game.pickCardAnimation;
-        console.log('the game update on firestore is ', game);
+        // console.log('the game update on firestore is ', game);
       });
     });
     // console.dir(this.game);
@@ -66,7 +67,11 @@ export class GameComponent implements OnInit {
   takeCard() {
     if (this.game.stack.length == 0) {
      this.gameOver = true;
+     this.stackOver = true;
     } else if (!this.game.pickCardAnimation) {
+      if (this.game.stack.length == 1) {
+          this.stackOver = true;
+      }
       this.game.currentCard = this.game.stack.pop(); //retunrs the last card from stack and removes it from there
       // console.log('current Card is ', this.currentCard);
       this.game.pickCardAnimation = true;
@@ -74,7 +79,6 @@ export class GameComponent implements OnInit {
 
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-      
       this.saveGame();
 
       setTimeout(() => {
@@ -82,6 +86,7 @@ export class GameComponent implements OnInit {
         this.game.pickCardAnimation = false;
         this.saveGame();
       }, 1000)
+
     }
   }
 
@@ -90,8 +95,6 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
-        // console.log('The dialog was closed', name);
-        // console.table('players are: ',this.game.players);
         this.game.players.push(name);
         this.game.player_images.push('male.png');
         this.saveGame();
@@ -105,11 +108,11 @@ export class GameComponent implements OnInit {
   }
 
   editPlayer(playerId: number) {
-    console.log('edit player', playerId);
+    // console.log('edit player', playerId);
 
     const dialogRef = this.dialog.open(EditPlayerComponent);
     dialogRef.afterClosed().subscribe((change: string) => {
-      console.log('recieved change', change);
+      // console.log('recieved change', change);
       if (change) {
         if (change == 'DELETE') {
           this.game.player_images.splice(playerId, 1);
