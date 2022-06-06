@@ -1,20 +1,27 @@
-span{
+span {
     background-color: rgba(128, 128, 128, 0.247);
+
+    @media (max-width: 540px) {
+        display: block;
+        word-break: break-all;
+    }
 }
-.link-container{
+
+.link-container {
     display: flex;
     align-items: center;
-    gap:1rem;
+    gap: 1rem;
 
-    mat-icon{
+    mat-icon {
         cursor: pointer;
     }
-    button{
+
+    button {
         background-color: white;
         border: none;
         transition: all 100ms ease;
 
-        &:hover{
+        &:hover {
             background-color: rgba(128, 128, 128, 0.11);
         }
     }

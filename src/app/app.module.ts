@@ -24,6 +24,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import { DialogShareComponent } from './dialog-share/dialog-share.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -40,6 +41,7 @@ import { DialogShareComponent } from './dialog-share/dialog-share.component';
     DialogShareComponent
   ],
   imports: [
+    MatTooltipModule,
     MatButtonModule,
     MatIconModule,
     BrowserModule,

@@ -21,7 +21,7 @@ export class GameComponent implements OnInit {
   gameOver: boolean = false;
   stackOver: boolean = false;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog, public dialogShare: MatDialog, private firestore: Firestore) {
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, public dialogShare: MatDialog, private firestore: Firestore,) {
     //firestore
     const coll = collection(this.firestore, 'games'); // whole collection of firestore database of games defined
     this.games$ = collectionData(coll); //get data from collection (content of games array)

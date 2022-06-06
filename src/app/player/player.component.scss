@@ -1,9 +1,10 @@
 .player {
     display: flex;
     align-items: center;
-    width: 300px;
-    background-color: rgb(133 133 133 / 60%);
+    min-width: 200px;
+    max-width: 300px;
     overflow: hidden;
+    background-color: rgb(255 254 253 / 61%);
     
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
@@ -14,6 +15,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        padding-bottom: 3px;
     }
 
 

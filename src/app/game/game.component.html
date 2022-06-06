@@ -33,11 +33,11 @@
 
 <app-game-info *ngIf="!gameOver" [card]="game.currentCard" class="pin-bottom"></app-game-info>
 
-<button *ngIf="!gameOver" (click)="openDialog()" mat-fab color="primary" class="button-add">
+<button matTooltip="add player" matTooltipPosition ="left" *ngIf="!gameOver" (click)="openDialog()" mat-fab color="primary" class="button-add">
     <mat-icon>add</mat-icon>
 </button>
 
-<button *ngIf="!gameOver" mat-fab color="primary" (click)="openShareDialog()" class="button-share" >
+<button *ngIf="!gameOver" mat-fab color="primary" matTooltip="share game link" matTooltipPosition ="left" (click)="openShareDialog()" class="button-share" >
     <mat-icon>share</mat-icon>
   </button>
 
