@@ -8,18 +8,18 @@
 </div>
 
 <div *ngIf="gameOver">
-    <img class="game-over" src="./assets/img/gameover.jpg">
-    <img class="replay" routerLink="/" src="/assets/img/replay.png" title="Play Again">
+    <img class="game-over" src="assets/img/gameover.jpg">
+    <img class="replay" routerLink="/" src="assets/img/replay.png" title="Play Again">
 </div>
 
-<img *ngIf="!stackOver" class="preloadImage" src="/assets/img/cards/{{ game.stack[game.stack.length -1] }}.svg">
+<img *ngIf="!stackOver" class="preloadImage" src="assets/img/cards/{{ game.stack[game.stack.length -1] }}.svg">
 
 <div *ngIf="!gameOver" class="field">
     <div class="card-stack">
         <!-- cardstack -->
         <img *ngFor="let card of [0, 1, 2, 3, 4]; let i = index;" [ngStyle]="{'right.px': i * 5}"
-            src="/assets/img/cards/card_cover.png">
-        <img (click)="takeCard()" class="top-card" style="right:25px" src="/assets/img/cards/card_cover.png">
+            src="assets/img/cards/card_cover.png">
+        <img (click)="takeCard()" class="top-card" style="right:25px" src="assets/img/cards/card_cover.png">
 
         <!-- Stack for played cards -->
         <img *ngFor="let card of game.playedCards" class="played-card" src="assets/img/cards/{{ card }}.svg" alt="">
@@ -27,7 +27,7 @@
 
         <!-- Current card animation -->
         <img (click)="takeCard()" *ngIf="game.pickCardAnimation" class="pick-card" style="right: 25px"
-            src="/assets/img/cards/{{ game.currentCard }}.svg">
+            src="assets/img/cards/{{ game.currentCard }}.svg">
     </div>
 </div>
 

@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,7 +58,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [],/*  {provide: APP_BASE_HREF, useValue: '/ringoffire'} */
   bootstrap: [AppComponent]
 })
 export class AppModule { }
