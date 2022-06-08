@@ -4,6 +4,8 @@
     width: 100vw;
     max-width: 100%;
     background-image: url("~src/assets/img/wood.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,6 +159,8 @@ app-player-mobile {
     max-width: 100%;
     display: flex;
     background-image: url("~src/assets/img/wood.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .preloadImage {
