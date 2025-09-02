@@ -53,3 +53,4 @@ firestore.rules
 src/environments
 public/index.html
 
+firestore.indexes.json
