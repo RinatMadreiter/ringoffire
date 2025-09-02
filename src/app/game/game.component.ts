@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collectionData, addDoc, collection, doc, docData, setDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, doc, docData, deleteDoc, updateDoc } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -63,14 +63,24 @@ export class GameComponent implements OnInit {
     // console.dir(this.game);
   }
 
+  async deleteGame() {
+    try {
+      const gameRef = doc(this.firestore, 'games', this.gameId);
+      await deleteDoc(gameRef);
+    } catch (error) {
+      console.error("Error deleting game: ", error);
+    }
+  }
+
 
   takeCard() {
     if (this.game.stack.length == 0) {
-     this.gameOver = true;
-     this.stackOver = true;
+      this.gameOver = true;
+      this.stackOver = true;
+      this.deleteGame();
     } else if (!this.game.pickCardAnimation) {
       if (this.game.stack.length == 1) {
-          this.stackOver = true;
+        this.stackOver = true;
       }
       this.game.currentCard = this.game.stack.pop(); //retunrs the last card from stack and removes it from there
       // console.log('current Card is ', this.currentCard);
@@ -106,7 +116,7 @@ export class GameComponent implements OnInit {
     });
   }
 
-  openShareDialog(): void{
+  openShareDialog(): void {
     const dialogRef = this.dialogShare.open(DialogShareComponent);
   }
 
