@@ -52,4 +52,4 @@ firestore.rules
 # Env files
 src/environments
 public/index.html
-firestore.rules
+
