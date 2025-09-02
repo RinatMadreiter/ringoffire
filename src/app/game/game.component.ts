@@ -78,7 +78,11 @@ export class GameComponent implements OnInit {
       // console.log('played cards are', this.game.playedCards);
 
       this.game.currentPlayer++;
-      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+      if (this.game.players.length > 0) {
+        this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+      } else {
+        this.game.currentPlayer = 0;
+      }
       this.saveGame();
 
       setTimeout(() => {
