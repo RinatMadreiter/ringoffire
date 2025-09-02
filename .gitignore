@@ -48,9 +48,10 @@ firebase.json
 firestore.rules
 *-debug.log
 .runtimeconfig.json
+firestore.indexes.json
+y
 
 # Env files
 src/environments
 public/index.html
 
-firestore.indexes.json
